@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ar">
+ <head></head> 
+ <body> 
+  <h1> Hello </h1> 
+  <div>
+    This is a html example from Dcoder, 
+   <br> have fun. :) 
+  </div> 
+ 
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الخارق AI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://example.com/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            margin: auto;
+            width: 80%;
+            max-width: 600px;
+        }
+        input[type="text"], select, button {
+            display: block;
+            width: 90%;
+            margin: 10px auto;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+    </style>
+
+
+    <div class="container">
+        <h1>مرحبًا بك في موقع الخارق AI</h1>
+        <p>قم بالاشتراك للاستفادة من جميع خدماتنا المتقدمة</p>
+
+        <h2>أنواع الاشتراكات:</h2>
+        <p>الأسبوعي: 15 دولار | الشهري: 20 دولار | السنوي: 100 دولار | مدى الحياة: 1000 دولار</p>
+        <p><b>عرض خاص:</b> اشتراك غير محدود مدى الحياة بـ 50,000 دولار</p>
+
+        <h3>اشترك الآن باستخدام القسيمة</h3>
+        <input type="text" id="couponCode" placeholder="أدخل القسيمة">
+        <button onclick="validateCoupon()">اشترك الآن</button>
+        <p id="responseMessage"></p>
+
+        <h3>مزايا الاشتراك:</h3>
+        <ul id="benefitsList"></ul>
+
+        <h3>للتواصل:</h3>
+        <p>الهاتف: +966 56 867 6360</p>
+        <p>البريد الإلكتروني: alkharq550@gmail.com</p>
+
+        <h3>معلومات صاحب الموقع:</h3>
+        <p>عبدالله محمد أحمد سلام</p>
+        <p>تاريخ الميلاد: 27/11/2011</p>
+    </div>
+
+    <script>
+        const validCoupons = {
+            "COUPON1": {
+                subscription: "الأسبوعي",
+                benefits: [
+                    "إنشاء صور باستخدام الذكاء الاصطناعي",
+                    "إنشاء مقاطع فيديو قصيرة",
+                    "إنشاء نصوص مكتوبة على المواضيع المحددة"
+                ],
+                usageLimit: 10 // يمكن استخدام المزايا 10 مرات في اليوم
+            },
+            "COUPON2": {
+                subscription: "الشهري",
+                benefits: [
+                    "إنشاء أفلام كاملة",
+                    "إنشاء عروض PowerPoint",
+                    "إنشاء مقاطع فيديو",
+                    "كتابة مقالات ونصوص",
+                    "تحويل نصوص إلى PDF أو Word"
+                ],
+                usageLimit: 30 // يمكن استخدام المزايا 30 مرة في اليوم
+            },
+            "COUPON3": {
+                subscription: "السنوي",
+                benefits: [
+                    "كل المزايا في الاشتراك الشهري بالإضافة إلى:",
+                    "تعليم البرمجة",
+                    "تحسين و تطوير اللغات (مثل العربية والإنجليزية)"
+                ],
+                usageLimit: 50 // يمكن استخدام المزايا 50 مرة في اليوم
+            },
+            "COUPON4": {
+                subscription: "مدى الحياة",
+                benefits: [
+                    "كل المزايا في الاشتراك السنوي بالإضافة إلى:",
+                    "التحدث مع الذكاء الاصطناعي (ALKHARQ-AI)",
+                    "التفاعل مع محتوى مخصص وفقًا للاحتياجات الشخصية"
+                ],
+                usageLimit: 70 // يمكن استخدام المزايا 70 مرة في اليوم
+            },
+            "COUPON5": {
+                subscription: "اللامحدود",
+                benefits: [
+                    "جميع المزايا بدون أي حد للاستخدام"
+                ],
+                usageLimit: "غير محدود" // يمكن استخدام المزايا بشكل غير محدود
+            }
+        };
+
+        function validateCoupon() {
+            const couponCode = document.getElementById('couponCode').value;
+            const messageElement = document.getElementById('responseMessage');
+            const benefitsList = document.getElementById('benefitsList');
+            
+            if (validCoupons[couponCode]) {
+                const subscriptionType = validCoupons[couponCode].subscription;
+                const benefits = validCoupons[couponCode].benefits;
+                
+                // عرض رسالة تأكيد
+                messageElement.innerHTML = "<span style='color: green;'>تم تفعيل الاشتراك بنجاح! نوع الاشتراك: " + subscriptionType + "</span>";
+                
+                // إضافة المزايا إلى القائمة
+                benefitsList.innerHTML = ""; // تفريغ القائمة السابقة إذا كانت موجودة
+                benefits.forEach(benefit => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = benefit;
+                    benefitsList.appendChild(listItem);
+                });
+
+                // بعد التفعيل، توجيه المستخدم إلى صفحة أخرى (مثال: صفحة الشكر)
+                setTimeout(() => {
+                    window.location.href = "thankyou.html";  // استبدل "thankyou.html" برابط الصفحة الفعلي
+                }, 2000);  // التأخير لمدة 2 ثانية قبل الانتقال للصفحة
+            } else {
+                messageElement.innerHTML = "<span style='color: red;'>القسيمة غير صحيحة.</span>";
+                benefitsList.innerHTML = ""; // تفريغ المزايا إذا كانت القسيمة غير صحيحة
+            }
+        }
+    </script>
+
+</body></html>
+
+
