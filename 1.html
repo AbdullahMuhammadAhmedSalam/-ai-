@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ar">
+ <head></head> 
+ <body> 
+  <h1> Hello </h1> 
+  <div>
+    This is a html example from Dcoder, 
+   <br> have fun. :) 
+  </div> 
+ 
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء قسائم</title>
+
+
+    <h1>إنشاء 10,000 قسيمة</h1>
+    <button onclick="generateCoupons()">إنشاء القسائم</button>
+    <p id="couponList"></p>
+
+    <script>
+        function generateCoupons() {
+            const coupons = [];
+            const numCoupons = 10000;
+
+            // دالة لإنشاء قسيمة عشوائية
+            function generateCoupon() {
+                const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+                let coupon = '';
+                for (let i = 0; i < 8; i++) {
+                    coupon += characters.charAt(Math.floor(Math.random() * characters.length));
+                }
+                return coupon;
+            }
+
+            // إنشاء 10,000 قسيمة
+            for (let i = 0; i < numCoupons; i++) {
+                coupons.push(generateCoupon());
+            }
+
+            // عرض القسائم في الصفحة
+            document.getElementById('couponList').innerText = coupons.join('\n');
+        }
+    </script>
+
+</body></html>
+
+
