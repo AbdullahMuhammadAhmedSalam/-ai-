@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ar">
+ <head></head> 
+ <body> 
+  <h1> Hello </h1> 
+  <div>
+    This is a html example from Dcoder, 
+   <br> have fun. :) 
+  </div> 
+ 
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الخارق AI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://example.com/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            margin: auto;
+            width: 80%;
+            max-width: 600px;
+        }
+        input[type="text"], button {
+            display: block;
+            width: 90%;
+            margin: 10px auto;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+
+
+    <div class="container">
+        <h1>مرحبًا بك في موقع الخارق AI</h1>
+        <p>اشترك الآن باستخدام القسيمة الخاصة بك.</p>
+
+        <input type="text" id="couponCode" placeholder="أدخل القسيمة">
+        <button onclick="validateCoupon()">اشترك الآن</button>
+        <p id="responseMessage"></p>
+    </div>
+
+    <script>
+        // قائمة القسائم الصالحة
+        const validCoupons = ["COUPON12345", "COUPON67890", "COUPONABCDE"];
+
+        function validateCoupon() {
+            const couponCode = document.getElementById('couponCode').value;
+            const messageElement = document.getElementById('responseMessage');
+
+            if (validCoupons.includes(couponCode)) {
+                // إذا كانت القسيمة صالحة
+                messageElement.innerHTML = "<span style='color: green;'>تم تفعيل الاشتراك بنجاح!</span>";
+                setTimeout(() => {
+                    window.location.href = "dashboard.html"; // انتقل إلى صفحة المزايا
+                }, 2000);
+            } else {
+                // إذا كانت القسيمة غير صالحة
+                messageElement.innerHTML = "<span style='color: red;'>القسيمة غير صحيحة.</span>";
+            }
+        }
+    </script>
+
+</body></html>
+
+
