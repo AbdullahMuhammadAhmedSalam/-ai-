@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ar">
+ <head></head> 
+ <body> 
+  <h1> Hello </h1> 
+  <div>
+    This is a html example from Dcoder, 
+   <br> have fun. :) 
+  </div> 
+ 
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الخارق AI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://example.com/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            margin: auto;
+            width: 80%;
+            max-width: 600px;
+        }
+        input[type="text"], select, button {
+            display: block;
+            width: 90%;
+            margin: 10px auto;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .support {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .support a {
+            color: #1DA1F2;
+            text-decoration: none;
+        }
+    </style>
+
+
+    <div class="container">
+        <h1>مرحبًا بك في موقع الخارق AI</h1>
+        <p>قم بالاشتراك للاستفادة من جميع خدماتنا المتقدمة</p>
+
+        <h2>أنواع الاشتراكات:</h2>
+        <p>الأسبوعي: 15 دولار | الشهري: 20 دولار | السنوي: 100 دولار | مدى الحياة: 1000 دولار</p>
+        <p><b>عرض خاص:</b> اشتراك غير محدود مدى الحياة بـ 50,000 دولار</p>
+
+        <h3>اشترك الآن باستخدام القسيمة</h3>
+        <input type="text" id="couponCode" placeholder="أدخل القسيمة">
+        <button onclick="validateCoupon()">اشترك الآن</button>
+        <p id="responseMessage"></p>
+
+        <div class="support">
+            <h3>للتواصل مع الدعم الفني:</h3>
+            <p>بوت الدعم الفني على تيليجرام: <a href="https://t.me/M3637282823BOT" target="_blank">@M3637282823BOT</a></p>
+            <p>البريد الإلكتروني: alkharq550@gmail.com</p>
+        </div>
+
+        <h3>معلومات صاحب الموقع:</h3>
+        <p>عبدالله محمد أحمد سلام</p>
+        <p>تاريخ الميلاد: 27/11/2011</p>
+    </div>
+
+    <script>
+        // قائمة القسائم الصالحة
+        const validCoupons = ["COUPON1", "COUPON2", "COUPON3"]; // أضف القسائم هنا
+
+        function validateCoupon() {
+            const couponCode = document.getElementById('couponCode').value.trim();
+            const messageElement = document.getElementById('responseMessage');
+
+            if (validCoupons.includes(couponCode)) {
+                // إزالة القسيمة من القائمة بعد الاستخدام
+                const index = validCoupons.indexOf(couponCode);
+                validCoupons.splice(index, 1);
+
+                // عرض رسالة النجاح
+                messageElement.innerHTML = "<span style='color: green;'>تم تفعيل الاشتراك بنجاح!</span>";
+
+                // نقل المستخدم إلى صفحة المزايا
+                setTimeout(() => {
+                    window.location.href = "features.html"; // رابط صفحة المزايا
+                }, 2000);
+            } else {
+                // رسالة الخطأ
+                messageElement.innerHTML = "<span style='color: red;'>القسيمة غير صحيحة أو مُستخدمة.</span>";
+            }
+        }
+    </script>
+
+</body></html>
+
+
